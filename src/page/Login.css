@@ -1,0 +1,124 @@
+/* Reset & base */
+
+
+
+/* Center the login box horizontally and vertically */
+.login-container {
+  display: flex;
+    
+    align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100vw
+}
+
+/* Login box styling */
+.login-box {
+  background-color: #fff;
+  padding: 40px 30px;            /* more padding for bigger look */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;             /* slightly wider */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 60PX;
+}
+
+/* Heading */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Bigger, taller input boxes */
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;           /* taller input */
+  font-size: 16px;              /* bigger text */
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* Forgot password link */
+.forgot-link {
+  text-align: right;
+  margin-bottom: 18px;
+}
+
+.forgot-link a {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-link a:hover {
+  text-decoration: underline;
+}
+
+/* Login button */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+}
+
+.signup-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks for very small screens */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+}

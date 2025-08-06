@@ -1,0 +1,95 @@
+
+.about-page-container {
+    padding: 1rem; /* p-4 */
+    color: #2d3748; /* gray-800 */
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;   /* common for single column content */
+    align-items: center;      /* center children horizontally in column layout */      /* optional: center text inside */
+}
+
+
+@media (min-width: 640px) {
+    .about-page-container {
+        padding: 1.5rem; /* sm:p-6 */
+    }
+}
+
+.about-page-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1.5rem; /* mb-6 */
+    text-align: center;
+    color: #2563eb; /* blue-700 */
+}
+
+.about-section {
+    margin-bottom: 2rem; /* mb-8 */
+    padding: 1rem; /* p-4 */
+    background-color: #ffffff;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    border: 1px solid #e5e7eb; /* border border-gray-200 */
+}
+
+.section-heading {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.75rem; /* mb-3 */
+    display: flex;
+    align-items: center;
+}
+
+.emoji {
+    margin-right: 0.5rem; /* mr-2 */
+}
+
+.emoji.red { color: #ef4444; } /* red-500 */
+.emoji.green { color: #22c55e; } /* green-500 */
+.emoji.purple { color: #a855f7; } /* purple-500 */
+.emoji.blue { color: #3b82f6; } /* blue-500 */
+.emoji.yellow { color: #f59e0b; } /* yellow-500 */
+
+
+.section-text {
+    margin-bottom: 0.75rem; /* mb-3 */
+    color: #4b5563; /* gray-700 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+@media (min-width: 640px) {
+    .section-text {
+        font-size: 1rem; /* sm:text-base */
+    }
+}
+
+.section-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: #4b5563; /* gray-600 */
+    padding-left: 0; /* Remove default padding */
+}
+
+.section-list li {
+    margin-bottom: 0.25rem; /* space-y-1 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+@media (min-width: 640px) {
+    .section-list li {
+        font-size: 1rem; /* sm:text-base */
+    }
+}
+
+.red-text {
+    color: #dc2626; /* red-600 */
+}
+
+.code-text {
+    font-family: monospace;
+    background-color: #f3f4f6; /* gray-100 */
+    padding: 0 0.25rem; /* px-1 */
+    border-radius: 0.25rem; /* rounded */
+}

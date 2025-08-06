@@ -1,0 +1,91 @@
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;              /* fix navbar at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d6efd;
+  padding: 0.8rem 1rem;
+  height: 60px;
+  z-index: 1000;               /* stay on top of other elements */
+}
+
+/* Add some space for content under fixed navbar */
+body {
+  padding-top: 60px;           /* same as navbar height */
+}
+
+.logo-img {
+  height: 36px;                /* adjust size for mobile */
+  width: 36px;
+  border-radius: 50%;          /* make it perfectly round */
+  object-fit: cover;           /* keep image centered & cropped if not square */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ffc107;
+}
+
+.active {
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 2px;
+}
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .logo-img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 992px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .logo-img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .nav-links {
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 1.05rem;
+  }
+}

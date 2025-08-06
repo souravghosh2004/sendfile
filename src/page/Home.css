@@ -1,0 +1,145 @@
+
+/* ================================== */
+/* Home Container & Layout     */
+/* ================================== */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ================================== */
+/* Sections               */
+/* ================================== */
+section {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+/* How to Use Section */
+.how-to-use ol {
+  padding-left: 20px;
+  margin-top: 0;
+}
+
+.how-to-use li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.how-to-use strong {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* ================================== */
+/* Buttons                */
+/* ================================== */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+/* Primary buttons (blue) */
+.primary-btn {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Secondary buttons (gray/outline) */
+.secondary-btn,
+.show-text-btn {
+  background-color: #ecf0f1;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
+.secondary-btn:hover,
+.show-text-btn:hover {
+  background-color: #bdc3c7;
+  transform: translateY(-2px);
+}
+
+/* Text-specific buttons (green) */
+.text-btn {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.text-btn:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}
+
+/* ================================== */
+/* Media Queries for Tablet    */
+/* ================================== */
+@media (min-width: 768px) {
+  .home-container {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+  
+  /* Side-by-side buttons for larger screens */
+  .buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button {
+    width: auto;
+    min-width: 180px;
+  }
+}

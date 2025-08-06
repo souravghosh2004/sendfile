@@ -1,0 +1,235 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.access-page-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.access-content-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-section input {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  transition: border-color 0.2s ease;
+}
+
+.input-section input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.input-section button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.input-section button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.input-section button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.message {
+  margin: 0 auto 1.5rem auto;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.info-message {
+  background-color: #e0f2fe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+
+/* File Grid */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* File Card */
+.file-card {
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  width: 100%;
+  max-width: 480px;
+}
+
+.file-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.file-type-icon {
+  font-size: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* ✅ Allow long filenames to wrap */
+.file-name {
+  font-size: 0.9rem;
+  color: #374151;
+  word-break: break-word;
+  line-height: 1.4;
+  flex: 1 1 100%;
+}
+
+/* File Preview Area */
+.file-preview-area {
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.file-preview-image,
+.file-preview-video,
+.file-preview-frame {
+  max-width: 100%;
+  max-height: 480px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.file-preview-frame {
+  width: 500px;
+  height: 400px;
+}
+
+.audio-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-preview-audio {
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  outline: none;
+}
+
+/* File Actions */
+.file-card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.secondary-btn {
+  background-color: #92c3f0;
+  color: #1f2937;
+}
+
+.secondary-btn:hover:not(:disabled) {
+  background-color: #8f8e8b;
+}
+
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

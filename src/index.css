@@ -1,0 +1,8 @@
+body {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: flex-start;   /* align items to the top */
+  min-height: 100vh;         /* full height, so background color etc. works */
+  margin: 0;
+}
+

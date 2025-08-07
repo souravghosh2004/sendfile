@@ -11,7 +11,12 @@ const Home = () => {
     const navigateAccessFiles = () => {
       navigate("/access-files")
     }
-
+    const navigateStoreTextFile = () =>{
+      navigate("/store-text")
+    }
+     function receiveTextFile (){
+      navigate("/recevie-text")
+     }
   return (
     <div className="home-container">
        
@@ -35,8 +40,8 @@ const Home = () => {
       <section className="text-share-section">
         <h2>📝 Share Text</h2>
         <div className="buttons">
-          <button className="text-btn">Share Text</button>
-          <button className="show-text-btn">Show Text</button>
+          <button className="text-btn" onClick={navigateStoreTextFile}>Share Text</button>
+          <button className="show-text-btn" onClick={receiveTextFile}>Show Text</button>
         </div>
       </section>
     </div>

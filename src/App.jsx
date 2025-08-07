@@ -6,7 +6,8 @@ import Layout from './laouts/Layout';
 import Login from './page/Login'
 import UploadFile from './main_page/UpoladFile';
 import AccessFiles from './main_page/AccessFiles';
-
+import StoreText from './main_page/StoreText';
+import ReceiveText from './main_page/ReceiveText';
 function App() {
   return (
     <div className="maindiv">
@@ -18,6 +19,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/upload-file" element={<UploadFile />} />
         <Route path="/access-files" element={<AccessFiles/>} />
+        <Route path="/store-text" element={<StoreText/>} />
+        <Route path="/recevie-text" element={<ReceiveText/>} />
       </Routes>
     </Layout>
     </div>

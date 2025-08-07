@@ -1,0 +1,103 @@
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.fetchBtn {
+  padding: 10px;
+  background-color: #3a7cfc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fetchBtn:hover {
+  background-color: #285bcc;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.resultBox {
+  margin-top: 20px;
+}
+
+.textArea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: monospace;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.copyBtn,
+.downloadBtn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.copyBtn:hover,
+.downloadBtn:hover {
+  background-color: #218838;
+}
+
+.dropdown {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .input {
+    flex: 1;
+  }
+
+  .fetchBtn {
+    flex-shrink: 0;
+  }
+}

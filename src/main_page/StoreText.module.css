@@ -21,6 +21,7 @@
 
 .textarea {
   width: 100%;
+  max-width: 100%;
   padding: 1rem;
   resize: vertical;
   font-size: 1rem;
@@ -28,6 +29,7 @@
   border-radius: 8px;
   font-family: sans-serif;
   min-height: 180px;
+  box-sizing: border-box;
 }
 
 .button {
@@ -78,7 +80,7 @@
   font-family: monospace;
   font-size: 1rem;
   color: #333;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .copyButton {
@@ -98,12 +100,19 @@
 
 /* Responsive adjustments */
 @media screen and (max-width: 600px) {
+  .container {
+    min-width: auto;
+    padding: 0.8rem;
+  }
+
   .title {
     font-size: 1.5rem;
   }
 
   .textarea {
+    width: 90%;
     min-height: 140px;
+    margin: 0 auto;
   }
 
   .codeContainer {

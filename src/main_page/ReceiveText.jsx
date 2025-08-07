@@ -9,6 +9,7 @@ const ReceiveText = () => {
   const [format, setFormat] = useState("txt");
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFetch = async () => {
     setError("");
@@ -17,17 +18,19 @@ const ReceiveText = () => {
       setError("Please enter a valid 6-character code.");
       return;
     }
-
+    setIsLoading(true)
     try {
       const res = await receiveTextAPI(code);
       if (!res.success) {
-        setError(res.message || "Invalid code.");
+        setError(res?.data?.message || "Invalid code.");
       } else {
         setTextData(res.data.content);
       }
     } catch (err) {
       console.error(err);
       setError("Something went wrong.");
+    }finally{
+      setIsLoading(false)
     }
   };
 
@@ -91,7 +94,7 @@ const ReceiveText = () => {
           className={styles.input}
         />
         <button onClick={handleFetch} className={styles.fetchBtn}>
-          Fetch Text
+              {isLoading ? "Fetching" : "Fetch Text"} 
         </button>
       </div>
 

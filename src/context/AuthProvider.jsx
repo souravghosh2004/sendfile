@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
     const verifyUser = async () => {
       try {
         const response = await checkAuth();
+        console.log("auth response = ",response)
         if (response.success) {
           setUser(response.data.user);
         } else {

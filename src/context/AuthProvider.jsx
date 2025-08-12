@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
         const response = await checkAuth();
         console.log("auth response = ",response)
         if (response.success) {
-          setUser(response.data.user);
+          setUser(response.data);
         } else {
           setUser(null);
         }

@@ -35,6 +35,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border: 2px dashed #0d6efd;
+  border-radius: 8px;
 }
 
 .form-group {

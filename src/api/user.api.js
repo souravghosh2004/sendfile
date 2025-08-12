@@ -24,3 +24,15 @@ export const getFilesByCode = async (uniqueCode) => {
     throw error; // propagate to handle in UI
   }
 };
+
+
+export const loginUser =  async (email, password) => {
+  try {
+    const response = await apiClient.post("/user/login",{email,password});
+    return response.data;
+    
+  } catch (error) {
+    console.log(error.response.data ||  "problem in login...")
+    return error.response.data;
+  }
+}

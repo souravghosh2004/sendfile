@@ -22,13 +22,14 @@ const ReceiveText = () => {
     try {
       const res = await receiveTextAPI(code);
       if (!res.success) {
-        setError(res?.data?.message || "Invalid code.");
+        setError(res?.message || "Invalid code.");
       } else {
         setTextData(res.data.content);
       }
     } catch (err) {
-      console.error(err);
-      setError("Something went wrong.");
+      console.error(err.response?.data?.message);
+      setError(err.response?.data?.message || "Invalid code.");
+      //setError("Something went wrong.");
     }finally{
       setIsLoading(false)
     }

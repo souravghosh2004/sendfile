@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './UploadFile.css';
 import { uploadFiles } from '../api/user.api.js';
 
@@ -43,6 +43,31 @@ const UploadFile = () => {
     });
   }, []);
 
+  // Allow drag-drop anywhere on page
+  useEffect(() => {
+    const handleDragOver = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    const handleDrop = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        addFiles(e.dataTransfer.files);
+        e.dataTransfer.clearData();
+      }
+    };
+
+    window.addEventListener('dragover', handleDragOver);
+    window.addEventListener('drop', handleDrop);
+
+    return () => {
+      window.removeEventListener('dragover', handleDragOver);
+      window.removeEventListener('drop', handleDrop);
+    };
+  }, [addFiles]);
+
   const handleFileChange = (e) => addFiles(e.target.files);
 
   const handleRemoveFile = (index) => {
@@ -52,20 +77,6 @@ const UploadFile = () => {
       setTotalSize(newTotal);
       return updated;
     });
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      addFiles(e.dataTransfer.files);
-      e.dataTransfer.clearData();
-    }
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
   };
 
   const handleCopyCode = () => {
@@ -93,11 +104,10 @@ const UploadFile = () => {
     let fakeProgress = 0;
     let fakeInterval = null;
 
-    // Start fake progress function
     const startFakeProgress = () => {
       fakeInterval = setInterval(() => {
         if (fakeProgress < 95) {
-          fakeProgress += Math.random() * 2; // smooth increment
+          fakeProgress += Math.random() * 2;
           setUploadProgress(Math.floor(fakeProgress));
         }
       }, 200);
@@ -110,7 +120,7 @@ const UploadFile = () => {
           setUploadProgress(percent);
           if (percent >= 100 && !realDone) {
             realDone = true;
-            startFakeProgress(); // start fake while backend processes
+            startFakeProgress();
           }
         }
       );
@@ -138,54 +148,48 @@ const UploadFile = () => {
       <div className="upload-page-container">
         <h2 className="upload-title">Upload Your Files</h2>
         <p className="upload-description">
-          Select or drag and drop files below. After upload, you'll get a unique code to share with anyone!
+          Select or drag and drop files anywhere on this page. After upload, you'll get a unique code to share with anyone!
         </p>
 
         <form className="upload-form">
-          <div
-            className={`form-group drop-area ${uploading ? 'uploading' : ''}`}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-          >
-            {selectedFiles.length > 0 && (
-              <ul className="selected-file-list">
-                {selectedFiles.map((item, idx) => (
-                  <li key={idx} className="selected-file-item">
-                    {item.preview ? (
-                      <img src={item.preview} alt={item.file.name} className="file-thumbnail" />
-                    ) : (
-                      <span className="file-icon">📄</span>
-                    )}
-                    <span className="file-name">{item.file.name}</span>
-                    <button
-                      type="button"
-                      className="remove-btn"
-                      onClick={() => handleRemoveFile(idx)}
-                      disabled={uploading}
-                    >
-                      ❌
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+          {selectedFiles.length > 0 && (
+            <ul className="selected-file-list">
+              {selectedFiles.map((item, idx) => (
+                <li key={idx} className="selected-file-item">
+                  {item.preview ? (
+                    <img src={item.preview} alt={item.file.name} className="file-thumbnail" />
+                  ) : (
+                    <span className="file-icon">📄</span>
+                  )}
+                  <span className="file-name">{item.file.name}</span>
+                  <button
+                    type="button"
+                    className="remove-btn"
+                    onClick={() => handleRemoveFile(idx)}
+                    disabled={uploading}
+                  >
+                    ❌
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
 
-            <label htmlFor="filesInput" className="file-input-label">
-              📁 Choose file(s) or drag them here:
-            </label>
-            <p className={`size-info ${limitExceeded ? 'limit-exceeded' : ''}`}>
-              Used: {(totalSize / (1024 * 1024)).toFixed(1)} MB / 50 MB
-            </p>
-            <input
-              type="file"
-              id="filesInput"
-              name="filesInput"
-              multiple
-              className="file-input"
-              onChange={handleFileChange}
-              disabled={uploading}
-            />
-          </div>
+          <label htmlFor="filesInput" className="file-input-label">
+            📁 Choose file(s):
+          </label>
+          <p className={`size-info ${limitExceeded ? 'limit-exceeded' : ''}`}>
+            Used: {(totalSize / (1024 * 1024)).toFixed(1)} MB / 50 MB
+          </p>
+          <input
+            type="file"
+            id="filesInput"
+            name="filesInput"
+            multiple
+            className="file-input"
+            onChange={handleFileChange}
+            disabled={uploading}
+          />
 
           <button
             type="button"

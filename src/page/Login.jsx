@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import './Login.css';
-
+import { loginUser } from '../api/user.api';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
+    const response = await loginUser(email,password);
+    console.log("login response == ", response)
+    if(response?.success){
+      navigate("/dashboard")
+    }
     // You can call your login API or do validation here
   };
 

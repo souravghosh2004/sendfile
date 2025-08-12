@@ -8,6 +8,7 @@ import UploadFile from './main_page/UpoladFile';
 import AccessFiles from './main_page/AccessFiles';
 import StoreText from './main_page/StoreText';
 import ReceiveText from './main_page/ReceiveText';
+import { Dashboard } from './main_page/Dashboard';
 function App() {
   return (
     <div className="maindiv">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/access-files" element={<AccessFiles/>} />
         <Route path="/store-text" element={<StoreText/>} />
         <Route path="/recevie-text" element={<ReceiveText/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </Layout>
     </div>

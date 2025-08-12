@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import appLogo from "../assets/logo.png";
+import {useAuth } from "../context/AuthProvider.jsx"
 
 const Navbar = () => {
+  const {user} = useAuth();
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -30,12 +32,26 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink 
-              to="/login" 
-              className={({ isActive }) => isActive ? "active" : ""}
-            >
-              Login
-            </NavLink>
+            {
+              user ? (
+                <NavLink 
+                to="/dashboard" 
+                  className={({ isActive }) => isActive ? "active" : ""}
+                >
+                <div className="user-badge">
+                  {user?.fullName.charAt(0).toUpperCase()}
+                </div>
+              </NavLink>
+             
+              ):(
+                    <NavLink 
+                to="/login" 
+                  className={({ isActive }) => isActive ? "active" : ""}
+                >
+                Login
+               </NavLink>
+              )
+            }
           </li>
         </ul>
       </div>

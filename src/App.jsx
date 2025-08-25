@@ -9,6 +9,7 @@ import AccessFiles from './main_page/AccessFiles';
 import StoreText from './main_page/StoreText';
 import ReceiveText from './main_page/ReceiveText';
 import { Dashboard } from './main_page/Dashboard';
+import RegisterPage from './components/Register';
 function App() {
   return (
     <div className="maindiv">
@@ -23,6 +24,7 @@ function App() {
         <Route path="/store-text" element={<StoreText/>} />
         <Route path="/recevie-text" element={<ReceiveText/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/register" element={<RegisterPage/>} />
       </Routes>
     </Layout>
     </div>

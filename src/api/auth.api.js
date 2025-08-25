@@ -12,5 +12,17 @@ const checkAuth = async() =>{
     }
 }
 
-export {checkAuth}
+const logoutUser = async () => {
+    try {
+        const response = await apiClient.get("/auth/logoutUser");
+        return response.data;
+    } catch (err) {
+        return {
+            success: false,
+            message : er.response?.data?.message || "Logout Failed."
+        }
+    }
+}
+
+export {checkAuth, logoutUser}
 

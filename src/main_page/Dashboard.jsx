@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import { useAuth } from "../context/AuthProvider";
 import { getAllUniqueCodesDetails } from "../api/uniqueCode.api.js";
-
+import { logoutUser } from "../api/auth.api.js";
+import { useNavigate } from "react-router-dom";
 export const Dashboard = () => {
-  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const { user, setUser} = useAuth();
   const username = user?.fullName || "User";
   const [filesData, setFilesData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,12 +35,16 @@ export const Dashboard = () => {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (!window.confirm("Are you sure you want to log out?")) {
       return;
     }
     try {
-      logout();
+      const response = await logoutUser();
+      if(response.success){
+        setUser(null)
+        navigate("/", { replace: true });
+      }
       // Optional: Redirect
     } catch (err) {
       console.error("Logout error:", err);
@@ -70,23 +76,33 @@ export const Dashboard = () => {
     return <div className={styles.container}>Loading...</div>;
   }
 
-  if (error) {
-    return (
-      <div className={styles.container} style={{ color: "red" }}>
-        {error}
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div className={styles.container} style={{ color: "red" }}>
+  //       {error}
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.greeting}>Hi, {username} 👋</h2>
-        <button className={styles.logoutBtn} onClick={handleLogout}>
+      <div className="logout_password">
+         <button className={styles.logoutBtn} onClick={handleLogout}>
           Logout
+        </button>
+        <button className={styles.logoutBtn} onClick={handleLogout}>
+          Change Password
         </button>
       </div>
 
+      </div>
+      {error ? (
+        <div className={styles.container} style={{ color: "red" }}>
+        {error}
+      </div>
+      ):null}
       <div className={styles.filesWrapper}>
         {filesData.map((item, index) => (
           <div key={index} className={styles.fileBox}>

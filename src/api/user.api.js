@@ -36,3 +36,24 @@ export const loginUser =  async (email, password) => {
     return error.response.data;
   }
 }
+
+
+export const tempUserCreate = async (email, password, fullName) => {
+  try {
+    const response = await apiClient.post("/user/temp/create-user",{email, password, fullName});
+    console.log(response.data)
+    return response.data;
+  } catch (err) {
+    console.log(err.response.data)
+    return err.response.data;
+  }
+}
+
+export const createNewUser = async (email, otp) => {
+  try {
+    const response = await apiClient.post("/user/create/new-user",{email, otp})
+    return response.data;
+  } catch (err) {
+    return err.response.data;
+  }
+} 

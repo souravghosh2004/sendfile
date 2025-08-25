@@ -28,6 +28,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  background-color: #ecf0f3;
 }
 
 .greeting {
@@ -47,6 +48,7 @@
   font-size: 1rem;
   font-weight: 300;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  margin: 2px;
 }
 
 .logoutBtn:hover {
@@ -167,6 +169,7 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
+    
   }
   
   .greeting {
@@ -204,3 +207,5 @@
     margin-right: 0;
   }
 }
+
+/* TRT6TYH*/

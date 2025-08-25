@@ -8,16 +8,24 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
+    setLoading(true)
     const response = await loginUser(email,password);
     console.log(response)
     console.log("login response == ", response)
     if(response?.success){
       setUser(response.data)
       navigate("/dashboard")
+     // window.location.reload();
+      setLoading(false)
+    }else{
+      setError(response.message)
+      setLoading(false)
     }
     // You can call your login API or do validation here
   };
@@ -50,7 +58,8 @@ const Login = () => {
           <div className="forgot-link">
             <a href="#">Forgot password?</a>
           </div>
-          <button type="submit" className="login-button">Login</button>
+          <button type="submit" className="login-button">{loading ? "Logging..." : "Login"}</button>
+           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
         <p className="signup-text">
           New here? <a href="#">Create account</a>

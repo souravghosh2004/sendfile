@@ -112,6 +112,7 @@
   text-decoration: underline;
 }
 
+
 /* Responsive tweaks for very small screens */
 @media (max-width: 480px) {
   .login-box {

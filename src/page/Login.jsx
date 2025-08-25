@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
 import { loginUser } from '../api/user.api';
 import { useNavigate } from 'react-router-dom';
@@ -62,8 +63,8 @@ const Login = () => {
            {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
         <p className="signup-text">
-          New here? <a href="#">Create account</a>
-        </p>
+  New here? <Link to="/register">Create account</Link>
+</p>
       </div>
     </div>
   );
